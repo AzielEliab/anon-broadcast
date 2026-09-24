@@ -80,13 +80,27 @@ class CliTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0)
         self.assertEqual(result.stdout.strip(), "anon-broadcast unreleased")
 
+    def test_directory_script(self) -> None:
+        env = os.environ.copy()
+        result = subprocess.run(
+            [str(ROOT / "anon-broadcast"), "--help"],
+            cwd=ROOT,
+            env=env,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("This package is not ready yet.", result.stdout)
+
     def test_readme_matches_status(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         self.assertIn("Aziel Eliab", readme)
         self.assertIn("not ready", readme)
+        self.assertIn("./anon-broadcast", readme)
+        self.assertIn("./anon-broadcast --help", readme)
         self.assertIn("python3 -m pip install -e .", readme)
-        self.assertIn("anon-broadcast", readme)
-        self.assertIn("anon-broadcast --help", readme)
+        self.assertIn("python3 -m anon_broadcast", readme)
         self.assertNotIn("What this is not", readme)
         self.assertLessEqual(readme.count("\n1. "), 1)
         self.assertLessEqual(readme.count("\n2. "), 1)

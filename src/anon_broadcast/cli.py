@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import sys
+import textwrap
 
 from anon_broadcast import AUTHOR
 
@@ -90,7 +91,7 @@ def _print_welcome(want_json: bool) -> None:
                 "",
                 SUMMARY,
                 "",
-                NEXT_STEP,
+                textwrap.fill(NEXT_STEP, width=72),
                 "",
                 "Next:",
                 f"  {PROG} --help",

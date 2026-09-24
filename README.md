@@ -8,10 +8,13 @@ When it ships, the next step will be the local renderer named in the repository 
 
 ## See the status
 
-1. `python3 -m pip install -e .`
-2. `anon-broadcast`
-3. `anon-broadcast --help`
+1. Open this directory.
+2. `./anon-broadcast`
+3. `./anon-broadcast --help`
 
-`anon-broadcast --json` prints the same status for scripts.
+`./anon-broadcast --json` prints the same status for scripts.
+
+To put `anon-broadcast` on your PATH: `python3 -m pip install -e .`
+If that command is not found, run `python3 -m anon_broadcast`.
 
 License: Apache-2.0. See [LICENSE](LICENSE).
