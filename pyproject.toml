@@ -1,0 +1,19 @@
+[project]
+name = "anon-broadcast"
+version = "0.1.0"
+description = "Local communique MP4 renderer. Text in, formant voice, desk reel, metadata-culled MP4, SHA-256 receipt."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Aziel Eliab" }]
+dependencies = []
+
+[project.scripts]
+anon-broadcast = "anonbroadcast.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["anonbroadcast*"]

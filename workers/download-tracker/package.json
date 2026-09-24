@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "type": "module",
+  "description": "AnonBroadcast isolated download tracker and landing",
+  "license": "Apache-2.0"
+}
